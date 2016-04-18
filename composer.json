@@ -1,0 +1,25 @@
+{
+  "name": "templesofcode/sofa-php",
+  "description": "Shell operations from an api",
+  "keywords": ["sysops", "php"],
+  "type": "library",
+  "license": "MIT",
+  "authors": [
+    {
+      "name": "OZ",
+      "email": "templesofcode@gmail.com"
+    }
+  ],
+  "require": {
+    "php": ">=5.4",
+    "doctrine/collections": "^1.3",
+    "albertofem/rsync-lib": "dev-master",
+    "symfony/console": "^3.0"
+  },
+  "autoload": {
+    "psr-4": { "TemplesOfCode\\Sofa\\": "src/TemplesOfCode/Sofa" }
+  },
+  "autoload-dev": {
+    "psr-4": { "TemplesOfCode\\Sofa\\": "tests/TemplesOfCode/Sofa" }
+  }
+}
