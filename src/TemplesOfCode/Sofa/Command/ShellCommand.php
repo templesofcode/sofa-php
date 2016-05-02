@@ -24,15 +24,35 @@ class ShellCommand extends BaseCommand implements ChainableCommand
         $locateCommand = "which " . $targetCommand;
 
         /**
-         * @var string|null $executable
+         * todo: run $locateCommand through escapeshellarg()
          */
-        $executable = `$locateCommand`;
-        if (empty($executable)) {
+        
+        $output = array();
+
+        /**
+         * @ar int $exitStatus
+         */
+        $exitStatus = null;
+
+        exec($locateCommand, $output, $exitStatus);
+
+        /**
+         * @var string $executable
+         */
+        $executable = $output[0];
+
+        $noResolution = $exitStatus
+            || empty($executable)
+        ;
+
+        if ($noResolution) {
             throw new CommandNotFoundException(sprintf(
                 "No '%s' command found in system",
                 $targetCommand
             ));
         }
+
+
         return $executable;
     }
 
