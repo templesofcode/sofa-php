@@ -25,7 +25,6 @@ class CommandChain implements ChainableCommand
      */
     protected $chain;
 
-
     /**
      * @var bool
      */
@@ -38,6 +37,7 @@ class CommandChain implements ChainableCommand
     public function __construct($chainLink)
     {
         $this->chainLink = $chainLink;
+        $this->commands = new ArrayCollection();
     }
 
     /**
